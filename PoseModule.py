@@ -6,6 +6,7 @@ Website: https://www.computervision.zone/
 import cv2
 import mediapipe as mp
 import math
+import numpy as np
 
 
 class PoseDetector:
@@ -44,11 +45,12 @@ class PoseDetector:
         """
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.pose.process(imgRGB)
+        img1 = np.zeros([360, 640, 3], np.uint8)
         if self.results.pose_landmarks:
             if draw:
-                self.mpDraw.draw_landmarks(img, self.results.pose_landmarks,
+                self.mpDraw.draw_landmarks(img1, self.results.pose_landmarks,
                                            self.mpPose.POSE_CONNECTIONS)
-        return img
+        return img1
 
     def findPosition(self, img, draw=True, bboxWithHands=False):
         self.lmList = []
