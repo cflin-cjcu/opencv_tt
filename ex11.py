@@ -24,7 +24,7 @@ cv2.imshow("img", img1)
 # plt.legend(loc="best")
 # plt.show()
 
-# # # mask
+# # mask
 # mask = np.zeros(imggray.shape[:2], np.uint8)
 # mask[100:400, 100:400] = 255
 # masked_img = cv2.bitwise_and(imggray, imggray, mask=mask)
@@ -41,7 +41,7 @@ cv2.imshow("img", img1)
 # plt.legend(loc=1), plt.title('Histogram')
 # plt.show()
 
-# 均衡化
+# # 均衡化
 # img = imggray.copy()
 # hist, bins = np.histogram(img.flatten(), 256, [0, 256])
 # # 計算累積分布(原圖)

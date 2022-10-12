@@ -38,11 +38,12 @@ w, h = template.shape[::-1]
 
 #找尋所有匹配 > threshold
 res = cv2.matchTemplate(img2, template, cv2.TM_CCOEFF_NORMED)
-threshold = 0.9
+threshold = 0.95
 img = img1.copy()
 loc = np.where(res >= threshold)
-print(*loc[::-1])
+# print(*loc[::-1])
 for pt in zip(*loc[::-1]):
+    print(pt)
     cv2.rectangle(img, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 1)
 
 plt.subplot(131), plt.imshow(cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)),
