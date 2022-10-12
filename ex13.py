@@ -16,6 +16,9 @@ while True:
         # bboxInfo - "id","bbox","score","center"
         center = bboxs[0]["center"]
         # cv2.circle(img, pp[0], 5, (255, 0, 255), cv2.FILLED)
+        cc = pp[0]
+        cc = [cc[0]-16, cc[1]-16]
+        img = cvzone.overlayPNG(img, heartimg, cc)
         cc = pp[1]
         cc = [cc[0]-16, cc[1]-16]
         img = cvzone.overlayPNG(img, heartimg, cc)
